@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Nova Tarefa</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<!-- importando css do bootstrap com maven -->
+</head>
+<body>
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+	<div class="container">
+		<h3>Alterar tarefa</h3>
+
+		<form class="form-horizontal" action="/tarefas/alterar" method="post"
+			th:object="${tarefa}">
+			
+			<input type="hidden" th:field="*{id}">
+			
+			<div class="row">
+				<div class="form-group col-md-6">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('titulo')}">
+						<label th:errors="*{titulo}" class="validation-message"></label>
+					</div>
+					<label>Título:</label> <input type="text" class="form-control"
+						th:field="*{titulo}">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-md-6">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('descricao')}">
+						<label th:errors="*{descricao}" class="validation-message"></label>
+					</div>
+					<label>Descrição:</label> <input type="text" class="form-control"
+						th:field="*{descricao}">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-md-6">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('dataExpiracao')}">
+						<label th:errors="*{dataExpiracao}" class="validation-message"></label>
+					</div>
+					<label>Data de expiração:</label> <input type="date"
+						class="form-control" th:field="*{dataExpiracao}">
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Salvar</button>
+		</form>
+	</div>
+
+	<script src="webjars/jquery/3.4.1/jquery.min.js"></script>
+	<!--  importando js com maven -->
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gerenciador de tarefas - pagina inicial</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"> <!-- importando css do bootstrap com maven -->
+</head>
+<body>
+		
+		<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+		<div class="container">
+			<p>Olá, seja bem-vindo!</p>
+			<p th:text="${mensagem}"></p>
+		</div>
+	<script src="webjars/jquery/3.4.1/jquery.min.js"></script> <!--  importando js com maven -->
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
